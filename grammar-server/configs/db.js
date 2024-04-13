@@ -1,12 +1,16 @@
-// db.js
-const { Pool } = require('pg');
+const mongoose = require('mongoose');
 
-const pool = new Pool({
-    user: 'your_database_user',
-    host: 'localhost',
-    database: 'your_database_name',
-    password: 'your_database_password',
-    port: 5432,
-});
+const connectDB = async () => {
+    try {
+        // MongoDB connection URI
+        const uri = 'mongodb://localhost:27017/HackNU';
 
-module.exports = pool;
+        // Connect to MongoDB using Mongoose
+        await mongoose.connect(uri);
+        console.log('Connected to MongoDB');
+    } catch (err) {
+        console.error('Error connecting to MongoDB:', err);
+    }
+};
+
+module.exports = connectDB;
