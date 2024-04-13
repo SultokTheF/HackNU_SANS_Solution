@@ -1,16 +1,12 @@
-// routes/lessons.js
 const express = require('express');
 const router = express.Router();
-const Lesson = require('../models/lesson');
+const lessonController = require('../controllers/lessonController');
 
-// Route to handle submitting a quiz
-router.post('/submit-quiz', async (req, res) => {
-    try {
-        // Process quiz submission here
-    } catch (err) {
-        console.error('Error submitting quiz:', err);
-        res.status(500).send('Server Error');
-    }
-});
+// Define routes for lesson management
+router.get('/', lessonController.getAllLessons);
+router.get('/:id', lessonController.getLessonById);
+router.post('/', lessonController.createLesson);
+router.put('/:id', lessonController.updateLesson);
+router.delete('/:id', lessonController.deleteLesson);
 
 module.exports = router;

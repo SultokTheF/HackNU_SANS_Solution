@@ -1,3 +1,5 @@
+<!-- views/index.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,31 +91,24 @@
 
     <div class="container mt-4">
         <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Lesson 1: Introduction to English Grammar</h5>
-                        <p class="card-text">A brief overview of English grammar concepts.</p>
-                        <a href="./quizPage.html" class="btn btn-primary">Begin</a>
+            <% courses.forEach(course => { %>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= course.title %></h5>
+                            <p class="card-text"><%= course.description %></p>
+                            <a href="/quizPage/<%= course.id %>" class="btn btn-primary">Begin</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Lesson 2: Reading Comprehension Techniques</h5>
-                        <p class="card-text">Learn effective strategies for improving reading comprehension.</p>
-                        <a href="./quizPage.html" class="btn btn-primary">Begin</a>
-                    </div>
-                </div>
-            </div>
+            <% }) %>
         </div>
     </div>
 
     <div class="container-fluid">
         <div class="row justify-content-end fixed-bottom mb-4 mr-4">
             <div class="col-auto">
-                <a href="./lessonAdditionPage.html" class="btn btn-primary rounded">
+                <a href="/grammar/" class="btn btn-primary rounded">
                     <span class="material-icons pt-1">add</span>
                 </a>
             </div>
