@@ -9,7 +9,7 @@ class ContextSerializer(serializers.ModelSerializer):
 class ContextQuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContextQuestion
-        fields = ['id', 'text', 'question_text', 'correct_answer']
+        fields = ['id', 'text', 'question_text']
 
 class QuestionAnswerSerializer(serializers.Serializer):
     context_id = serializers.PrimaryKeyRelatedField(queryset=Context.objects.all())

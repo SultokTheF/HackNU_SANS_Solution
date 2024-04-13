@@ -1,0 +1,9 @@
+.reading-list {
+  padding-top: calc(var(--navbarHeight) + 4rem); /* Increased top padding */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Keep two cards per row */
+  gap: 2rem;
+  padding-left: 4rem; /* You can adjust this as needed */
+  padding-right: 4rem; /* You can adjust this as needed */
+  padding-bottom: 4rem; /* Increased bottom padding for consistency */
+}

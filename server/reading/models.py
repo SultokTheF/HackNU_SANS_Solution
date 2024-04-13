@@ -13,7 +13,6 @@ class Context(models.Model):
 class ContextQuestion(models.Model):
     text = models.ForeignKey(Context, on_delete=models.CASCADE)  # Ссылка на текст
     question_text = models.TextField()  # Текст вопроса
-    correct_answer = models.TextField()  # Правильный ответ
 
     def __str__(self):
         return f"{self.text.title}: {self.question_text}"

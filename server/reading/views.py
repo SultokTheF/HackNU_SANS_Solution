@@ -12,14 +12,10 @@ from sklearn.metrics.pairwise import cosine_similarity
 import torch
 
 class ContextViewSet(viewsets.ModelViewSet):
-    authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticated]
     queryset = Context.objects.all()
     serializer_class = ContextSerializer
 
 class ContextQuestionViewSet(viewsets.ModelViewSet):
-    authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticated]
     queryset = ContextQuestion.objects.all()
     serializer_class = ContextQuestionSerializer
 
