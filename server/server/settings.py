@@ -29,10 +29,11 @@ INSTALLED_APPS = [
 
     #apps
     "users.apps.UsersConfig",
+    "reading.apps.ReadingConfig",
 
     #libs
     "rest_framework",
-    'rest_framework_simplejwt',
+    "rest_framework_simplejwt",
     "corsheaders",
 ]
 
