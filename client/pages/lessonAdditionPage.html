@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Lesson</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body {
+            background-color: #1E1E1E;
+            color: #FFFFFF;
+        }
+
+        .form-group label {
+            color: #FFFFFF;
+        }
+
+        .form-control {
+            background-color: #333333;
+            color: #FFFFFF;
+        }
+
+        .form-control:focus {
+            background-color: #454545;
+            color: #FFFFFF;
+            border-color: #2C74B3;
+            box-shadow: none;
+        }
+
+        .btn-primary {
+            background-color: #2C74B3;
+            border-color: #2C74B3;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Learning Platform</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Grammar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Reading</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Speech</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="material-icons">account_circle</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Add Lesson</h1>
+        <form action="/add-lesson" method="POST">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="youtubeLink">YouTube Link:</label>
+                <input type="text" class="form-control" id="youtubeLink" name="youtubeLink" required>
+            </div>
+            <div class="form-group">
+                <label for="textContent">Text Content:</label>
+                <textarea class="form-control" id="textContent" name="textContent" rows="6" required></textarea>
+            </div>
+            
+            <h2>Quiz</h2>
+            <div id="quizQuestions">
+                <div class="form-group">
+                    <label for="question1">Question 1:</label>
+                    <input type="text" class="form-control" id="question1" name="question1" required>
+                </div>
+                <div class="form-group">
+                    <label for="correctAnswer1">Correct Answer:</label>
+                    <input type="text" class="form-control" id="correctAnswer1" name="correctAnswer1" required>
+                </div>
+                <div class="form-group">
+                    <label for="incorrectAnswer1">Incorrect Answer:</label>
+                    <input type="text" class="form-control" id="incorrectAnswer1" name="incorrectAnswer1" required>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="button" class="btn btn-primary" id="addQuestion">Add Question</button>
+            </div>
+            
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let questionCount = 1;
+
+            $('#addQuestion').click(function() {
+                questionCount++;
+
+                let newQuestion = `
+                    <div class="form-group">
+                        <label for="question${questionCount}">Question ${questionCount}:</label>
+                        <input type="text" class="form-control" id="question${questionCount}" name="question${questionCount}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="correctAnswer${questionCount}">Correct Answer:</label>
+                        <input type="text" class="form-control" id="correctAnswer${questionCount}" name="correctAnswer${questionCount}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="incorrectAnswer${questionCount}">Incorrect Answer:</label>
+                        <input type="text" class="form-control" id="incorrectAnswer${questionCount}" name="incorrectAnswer${questionCount}" required>
+                    </div>
+                `;
+
+                $('#quizQuestions').append(newQuestion);
+            });
+        });
+    </script>
+</body>
+</html>
