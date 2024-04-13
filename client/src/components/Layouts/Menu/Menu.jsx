@@ -26,23 +26,28 @@ const Menu = () => {
 
       <ul>
         <li className="menu-link">
+          <h1 data-name="PROFILE">
+            <Link to="/user/profile">PROFILE</Link>
+          </h1>
+        </li>
+        <li className="menu-link">
           <h1 data-name="READING">
-            <Link to="/games">READING</Link>
+            <Link to="/reading">READING</Link>
           </h1>
         </li>
         <li className="menu-link">
           <h1 data-name="GRAMMAR">
-            <Link to="/user/profile">GRAMMAR</Link>
+            <Link to="/grammar">GRAMMAR</Link>
           </h1>
         </li>
         <li className="menu-link">
           <h1 data-name="SPEAKING">
-            <Link to="/leaderboard">SPEAKING</Link>
+            <Link to="/speaking">SPEAKING</Link>
           </h1>
         </li>
         <li className="menu-link">
           <h1 data-name="leaderboard">
-            <Link to="/chat">leaderboard</Link>
+            <Link to="/leaderboard">leaderboard</Link>
           </h1>
         </li>
       </ul>
