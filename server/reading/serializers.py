@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from .models import Context, ContextQuestion
 
+from users.serializers import UserSerializer
+
 class ContextSerializer(serializers.ModelSerializer):
     class Meta:
         model = Context

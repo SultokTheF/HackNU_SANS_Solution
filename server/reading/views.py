@@ -137,6 +137,12 @@ class CompareAnswersAPIView(APIView):
         # Calculate the similarity between the model's answer and the user's answer using cosine similarity
         similarity_score = self.calculate_similarity(model_answer, user_answer)
         
+        # Add XP to the user if similarity score is greater than 0.50
+        if similarity_score > 0.50:
+            user = request.user
+            user.xp += 100  # Increment XP by 100
+            user.save()
+
         # Return the model's answer, user's answer, and similarity score as a response
         return Response({
             'model_answer': model_answer,

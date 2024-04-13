@@ -49,3 +49,16 @@ button {
 button:hover {
   opacity: 0.9;
 }
+
+.correct-answer {
+  color: green;
+  font-size: 1.5rem;
+  /* Any additional styles you want for the tick */
+}
+
+.wrong-answer {
+  color: red;
+  font-size: 1.5rem;
+  /* Any additional styles you want for the tick */
+}
+

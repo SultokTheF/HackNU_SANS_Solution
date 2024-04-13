@@ -7,7 +7,7 @@ import { Menu } from './components/Layouts';
 
 import { Loader } from './components/UI';
 
-import { Authorization, ReadingList, ReadingPage } from './components';
+import { Authorization, ReadingList, ReadingPage, UserProfile } from './components';
 
 
 import "./assets/global.css";
@@ -25,6 +25,7 @@ export default function App() {
             <Route path='/authorization' element={ <Authorization/> } />
             <Route path='/reading' element={ <ReadingList/> } />
             <Route path='/reading/:id' element={ <ReadingPage/> } />
+            <Route path='/profile' element={ <UserProfile/> } />
           </Routes>
         )}
     </>

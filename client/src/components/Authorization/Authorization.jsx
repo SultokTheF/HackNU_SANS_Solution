@@ -72,7 +72,7 @@ const Authorization = () => {
         const { access, refresh } = response.data;
         localStorage.setItem("accessToken", access);
         Cookies.set('refreshToken', refresh, { expires: 30 });
-        alert("Login successful");
+        window.location.replace("/profile");
       } else {
         setLoginError("Something went wrong! Try later");
       }
@@ -81,6 +81,7 @@ const Authorization = () => {
       console.error("Error during login:", error);
     }
   };
+  
 
   return (
     <>

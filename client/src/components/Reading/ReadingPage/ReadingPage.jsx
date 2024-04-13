@@ -11,6 +11,7 @@ const ReadingPage = () => {
   const [context, setContext] = useState(null);
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState({});
+  const [results, setResults] = useState({});
 
   useEffect(() => {
     const fetchContextAndQuestions = async () => {
@@ -38,10 +39,38 @@ const ReadingPage = () => {
     }));
   };
 
-  const handleSubmit = (questionId) => {
+  const handleSubmit = async (questionId) => {
+    const accessToken = localStorage.getItem('accessToken'); // Retrieve the access token from localStorage
+    if (!accessToken) {
+      console.error('No access token available.');
+      // Handle the lack of a token, e.g., by showing an error message to the user
+      return;
+    }
+  
     const answer = answers[questionId];
-    console.log(`Answer for question ${questionId}:`, answer);
-    // Here you would typically send the answer to the backend
+    const questionText = questions.find(q => q.id === questionId).question_text;
+    const contextText = context?.content;
+  
+    try {
+      const response = await axios.post('http://localhost:8000/api/compare_answers/', {
+        context: contextText,
+        question: questionText,
+        user_answer: answer
+      }, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`
+        }
+      });
+  
+      // Update the results state with the response data
+      setResults(prevResults => ({
+        ...prevResults,
+        [questionId]: response.data
+      }));
+  
+    } catch (error) {
+      console.error('Error submitting answer:', error);
+    }
   };
 
   return (
@@ -62,6 +91,18 @@ const ReadingPage = () => {
                 onChange={(e) => handleInputChange(question.id, e.target.value)}
               />
               <button onClick={() => handleSubmit(question.id)}>Submit Answer</button>
+
+              {results[question.id] && (
+                <div className="result-feedback">
+                  <p>Model Answer: {results[question.id].model_answer}</p>
+                  {results[question.id].similarity_score >= 0.50 && (
+                    <p className="correct-answer">✔️ This is correct</p>
+                  )}
+                  {results[question.id].similarity_score < 0.50 && (
+                    <p className="wrong-answer">X This is wrong</p>
+                  )}
+                </div>
+              )}
             </div>
           ))}
         </div>

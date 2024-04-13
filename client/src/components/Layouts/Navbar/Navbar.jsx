@@ -4,9 +4,12 @@ import './Navbar.css';
 import logo from "../../../assets/images/SANS_logo.png";
 import logo_on_hover from "../../../assets/images/SANS_logo_on_hover.png";
 
+import useAuthentication from '../../../hooks/useAuthentication';
+
 
 const Navbar = ({ active }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const userData = useAuthentication();
 
   const handleMouseOver = () => {
     setIsHovered(true);
@@ -36,9 +39,19 @@ const Navbar = ({ active }) => {
         <li><a href="/speaking" className={active=="speaking" ? "active" : ""}>Speaking</a></li>
         <li><a href="/leaderboard" className={active=="leaderboard" ? "active" : ""}>Leaderboard</a></li>
       </ul>
-      <div className="auth-buttons">
-        <a href="/authorization" className="btn">Authorization</a>
-      </div>
+      {userData ? (
+        <div className="auth-buttons">
+          <a href="/profile" className="btn">
+            {userData}
+          </a>
+        </div>
+      ) : (
+        <div className="auth-buttons">
+          <a href="/authorization" className="btn">
+            Authorization
+          </a>
+        </div>
+      )}
     </nav>
   );
 }

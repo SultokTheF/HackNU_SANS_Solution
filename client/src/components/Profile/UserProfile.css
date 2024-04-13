@@ -1,0 +1,60 @@
+.user-profile {
+  padding-top: calc(var(--navbarHeight) + 4rem);
+  padding-left: 4rem; /* You can adjust this as needed */
+  padding-right: 4rem; /* You can adjust this as needed */
+  padding-bottom: 4rem;
+  color: var(--textColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.profile-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.username, .name, .email {
+  text-align: center;
+}
+
+.user-level-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.user-level,
+.user-xp {
+  font-size: 1rem;
+  margin: 0.25rem 0;
+}
+
+.xp-progress-container {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.xp-progress-bar {
+  height: 20px;
+  background-color: var(--primaryColor);
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out;
+}

@@ -27,7 +27,7 @@ const Menu = () => {
       <ul>
         <li className="menu-link">
           <h1 data-name="PROFILE">
-            <Link to="/user/profile">PROFILE</Link>
+            <Link to="/profile">PROFILE</Link>
           </h1>
         </li>
         <li className="menu-link">

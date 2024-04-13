@@ -57,3 +57,36 @@ class UserAPIView(APIView):
 #             access_token = response.data['refresh']
 #             response.set_cookie(key='refreshToken', value=access_token, httponly=True)
 #         return response
+  
+class LeadersAPIView(APIView):
+    def get(self, request):
+        # Retrieve all users and sort them by xp
+        users = User.objects.all().order_by('-xp')  # '-' denotes descending order
+
+        # Serialize the sorted users
+        serializer = UserSerializer(users, many=True)
+
+        # Return the serialized data
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+# views.py
+
+class GetUserByIdAPIView(APIView):
+    def get(self, request, user_id):
+        try:
+            user = User.objects.get(id=user_id)
+        except User.DoesNotExist:
+            return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+        
+        # Serialize the user data with required fields
+        serialized_data = {
+            'profile_image': user.profile_image,
+            'first_name': user.first_name,
+            'surname': user.surname,
+            'xp': user.xp,
+            'username': user.username,
+            'email': user.email
+        }
+
+        # Return the serialized data
+        return Response(serialized_data, status=status.HTTP_200_OK)
