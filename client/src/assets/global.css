@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+	transition: .3s ease;
+	scroll-behavior: smooth;
+}
+
+body {
+	max-width: 100%;
+	min-height: 100vh;
+	display: grid;
+  /* place-items: center; */
+	background: var(--bgcolor);
+	color: var(--textColor);
+	overflow-x: hidden;
+}
+
+:root {
+  --primaryColor: #2C74B3;
+
+	--bgcolor: #000000;
+  --textColor: #ffffff;
+  --inputColor: #eee;
+
+  --boxShadow:  0 2px 8px 2px var(--textColor);
+}
+
+a {
+  text-decoration: none;
+  color: var(--textColor);
+}
+
+li{
+  list-style: none;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+}
+
+.grid{
+  display: grid;
+  align-items: center;
+}
+
+button, .btn {
+	border-radius: 20px;
+	border: 2px solid var(--primaryColor);
+	background-color: var(--primaryColor);
+	color: var(--textColor);
+	/* font-size: 12px; */
+	/* font-weight: bold; */
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+.btn:hover {
+	transition: .3s ease;
+	background-color: transparent;
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+button:focus, .btn:hover {
+	outline: none;
+}
+
+button.ghost {
+	background-color: transparent;
+	border-color: var(--textColor);
+}
+
+::-webkit-scrollbar{
+	width: 10px;
+	background: var(--bgcolor);
+}
+::-webkit-scrollbar-thumb{
+	background: var(--primaryColor);
+	border-radius: 10px;
+}

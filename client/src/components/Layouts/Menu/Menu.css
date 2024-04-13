@@ -1,0 +1,59 @@
+.menu {
+	max-height: 100%;
+	position: absolute;
+	top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.menu ul{
+	list-style: none;
+}
+.menu img {
+  width: 300px;;
+  margin-right: 150px;
+}
+.menu h1 {
+	font-size: 5rem;
+	position: relative;
+	text-transform: uppercase;
+	transition: all 300ms ease;
+	width: fit-content;
+	cursor: pointer;
+}
+.menu h1:hover {
+	transform: skew(10deg);
+}
+.menu h1::before {
+	content: attr(data-name);
+	position: absolute;
+	top: 0;
+	left: -20px;
+	background: var(--bgcolor);
+	height: 3rem;
+	overflow: hidden;
+	transition: all 300ms ease;
+	padding-left: 20px;
+}
+.menu h1:hover::before {
+	top: -3px;
+	left: 0px;
+	color: var(--primaryColor);
+}
+
+.menu h1::after {
+	content: "";
+	height: 4px;
+	width: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: var(--primaryColor);
+	transition: all 300ms ease;
+}
+
+.menu h1:hover::after {
+	width: 120%;
+	outline: 5px solid var(--bgcolor);
+}
