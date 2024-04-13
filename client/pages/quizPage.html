@@ -5,11 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body {
+            background-color: #1E1E1E;
+            color: #FFFFFF;
+        }
+
+        .navbar {
+            background-color: #1E1E1E;
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            color: #FFFFFF;
+        }
+
+        .navbar-light .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255,255,255,.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .navbar-light .navbar-toggler {
+            border-color: rgba(255,255,255,.5);
+        }
+
+        .navbar-light .navbar-toggler:hover {
+            background-color: rgba(255,255,255,.1);
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #FFFFFF !important;
+        }
+
+        .btn-primary {
+            background-color: #2C74B3;
+            border-color: #2C74B3;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .form-control {
+            background-color: #2C2C2C;
+            color: #FFFFFF;
+            border-color: #2C74B3;
+        }
+
+        .form-control:focus {
+            background-color: #363636;
+            border-color: #2C74B3;
+            color: #FFFFFF;
+        }
+
+        .form-control::placeholder {
+            color: #8C8C8C;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Learning Platform</a>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#" style="color: #FFFFFF;">Learning Platform</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -17,16 +75,23 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="#" style="color: #FFFFFF;">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./grammarPage.html">Grammar</a>
+                        <a class="nav-link" href="./grammarPage.html" style="color: #FFFFFF;">Grammar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Reading</a>
+                        <a class="nav-link" href="#" style="color: #FFFFFF;">Reading</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Speech</a>
+                        <a class="nav-link" href="#" style="color: #FFFFFF;">Speech</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="material-icons" style="color: #FFFFFF;">account_circle</i>
+                        </a>
                     </li>
                 </ul>
             </div>
