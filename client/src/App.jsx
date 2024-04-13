@@ -7,7 +7,7 @@ import { Menu } from './components/Layouts';
 
 import { Loader } from './components/UI';
 
-import { Authorization, ReadingList, ReadingPage, UserProfile } from './components';
+import { Authorization, ReadingList, ReadingPage, UserProfile, Profile, Leaderboard } from './components';
 
 
 import "./assets/global.css";
@@ -26,6 +26,8 @@ export default function App() {
             <Route path='/reading' element={ <ReadingList/> } />
             <Route path='/reading/:id' element={ <ReadingPage/> } />
             <Route path='/profile' element={ <UserProfile/> } />
+            <Route path='/profile/:id' element={ <Profile/> } />
+            <Route path='/leaderboard' element={ <Leaderboard/> } />
           </Routes>
         )}
     </>

@@ -42,7 +42,7 @@ const Navbar = ({ active }) => {
       {userData ? (
         <div className="auth-buttons">
           <a href="/profile" className="btn">
-            {userData}
+            {userData.username}
           </a>
         </div>
       ) : (

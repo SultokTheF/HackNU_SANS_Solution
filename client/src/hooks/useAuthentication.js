@@ -15,8 +15,7 @@ const useAuthentication = () => {
             },
           });
           if (response.status === 200) {
-            const { username } = response.data;
-            setUserData(username);
+            setUserData(response.data);
           }
         } catch (error) {
           console.error("Error while fetching user data:", error);

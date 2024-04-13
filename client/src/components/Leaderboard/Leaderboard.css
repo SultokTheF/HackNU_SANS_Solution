@@ -1,0 +1,82 @@
+.leaderboard {
+  padding-top: calc(var(--navbarHeight) + 4rem);
+  padding-left: 4rem; /* You can adjust this as needed */
+  padding-right: 4rem; /* You can adjust this as needed */
+  padding-bottom: 4rem;
+  /* padding: 20px; */
+  color: var(--textColor);
+}
+
+.leaderboard h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.leader-table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.leader-table th,
+.leader-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc; /* Separates rows */
+}
+
+.leader-table thead {
+  background-color: var(--primaryColor);
+  color: var(--textColor);
+}
+
+.leader-table .profile-image {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.leader-table tr.top-1,
+.leader-table tr.top-2,
+.leader-table tr.top-3 {
+  background-color: var(--primaryColor);
+  color: var(--textColor);
+}
+
+.leader-table tr.top-1 .profile-image,
+.leader-table tr.top-2 .profile-image,
+.leader-table tr.top-3 .profile-image {
+  box-shadow: 0 0 10px 2px var(--primaryColor); /* Adds a glow to top 3 avatars */
+}
+
+/* Add custom icons or badges for the top 3 */
+.leader-table tr.top-1 td:first-child::after,
+.leader-table tr.top-2 td:first-child::after,
+.leader-table tr.top-3 td:first-child::after {
+  content: '🏆';
+  margin-left: 5px;
+  font-size: 1.2rem;
+}
+
+/* Individual customizations for each of the top 3 */
+.leader-table tr.top-1 {
+  background-color: gold;
+}
+
+.leader-table tr.top-2 {
+  background-color: silver;
+}
+
+.leader-table tr.top-3 {
+  background-color: #cd7f32; /* Bronze color */
+}
+
+
+.leader-table td a {
+  display: inline-block; /* Required to apply dimensions for the box shadow */
+}
+
+.leader-table td a:hover {
+  box-shadow: 0 4px 8px rgb(255, 255, 255); /* Replace with desired shadow */
+  border-radius: 50%; /* Maintain the circular shape for the avatar */
+}
