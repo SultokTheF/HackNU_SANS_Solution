@@ -1,0 +1,76 @@
+:root {
+  --navbarHeight: 60px; 
+}
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--blackColor);
+  color: var(--textColor);
+  display: flex;
+  height: var(--navbarHeight);
+  justify-content: space-between;
+  align-items: center; /* This will vertically center the children */
+  padding: 10px 20px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center; /* Center logo vertically */
+}
+
+.navbar-logo {
+  height: 50px; /* Adjust as needed */
+}
+
+.menu-items {
+  display: flex;
+  align-items: center; /* Center nav items vertically */
+  list-style-type: none;
+  gap: 20px;
+}
+
+.menu-items li a {
+  color: var(--textColor);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.menu-items li .active {
+  color: var(--primaryColor);
+}
+
+.menu-items li a:hover {
+  color: var(--primaryColor);
+}
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 3rem;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .menu-items,
+  .auth-buttons {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .menu-items {
+    flex-direction: column;
+  }
+
+  .auth-buttons {
+    flex-direction: column;
+  }
+}

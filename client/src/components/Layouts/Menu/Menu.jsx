@@ -42,7 +42,7 @@ const Menu = () => {
         </li>
         <li className="menu-link">
           <h1 data-name="SPEAKING">
-            <Link to="/speaking">SPEAKING</Link>
+            <Link to="http://localhost:3000/call">SPEAKING</Link>
           </h1>
         </li>
         <li className="menu-link">

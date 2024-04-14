@@ -60,7 +60,6 @@ const VideoPlayer = () => {
             muted
             ref={myVideo}
             autoPlay
-            className={classes.video}
           />
         </Grid>
       ) : (

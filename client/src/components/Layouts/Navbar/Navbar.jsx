@@ -36,7 +36,7 @@ const Navbar = ({ active }) => {
         <li><a href="/profile" className={active=="profile" ? "active" : ""}>Profile</a></li>
         <li><a href="/reading" className={active=="reading" ? "active" : ""}>Reading</a></li>
         <li><a href="/grammar" className={active=="grammar" ? "active" : ""}>Grammar</a></li>
-        <li><a href="/speaking" className={active=="speaking" ? "active" : ""}>Speaking</a></li>
+        <li><a href="http://localhost:3000/call" className={active=="speaking" ? "active" : ""}>Speaking</a></li>
         <li><a href="/leaderboard" className={active=="leaderboard" ? "active" : ""}>Leaderboard</a></li>
       </ul>
       {userData ? (

@@ -2,14 +2,16 @@ import React from "react";
 import VideoCall from "src/components/video-call";
 import LoginScreen from "src/components/login-screen";
 import { ContextProvider } from "src/socket-context";
-import Navigation from "src/components/navigation";
+import Navbar from "./components/navigation/Navbar";
+
+import "./assets/global.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => {
   return (
     <Router>
-      <Navigation />
+      <Navbar />
       <div>
         <Switch>
           <Route path="/" exact>

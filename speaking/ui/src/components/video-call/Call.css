@@ -1,0 +1,6 @@
+.call {
+  padding-top: calc(var(--navbarHeight) + 4rem);
+  padding-left: 4rem; /* You can adjust this as needed */
+  padding-right: 4rem; /* You can adjust this as needed */
+  padding-bottom: 4rem;
+}
