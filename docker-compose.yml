@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  client:
+    build: ./client
+    ports:
+      - "5173:5173"
+    depends_on:
+      - server
+  server:
+    build: ./server
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  # speaking:
+  #   build: ./speaking
+  #   ports:
+  #     - "5001:5001"
+  #   depends_on:
+  #     - db
+  # ui:
+  #   build: ./ui
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - speaking 
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: HackNU
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 03110311
+    ports:
+      - "5433:5433"
