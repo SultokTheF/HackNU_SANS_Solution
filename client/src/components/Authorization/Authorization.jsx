@@ -6,7 +6,7 @@ import "./Authorization.css";
 import logo from "../../assets/images/SANS_logo.png";
 import logo_on_hover from "../../assets/images/SANS_logo_on_hover.png";
 
-const baseURL = "http://localhost:8000/api";
+import baseURL from "../../store/endpoint";
 
 const Authorization = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -51,7 +51,7 @@ const Authorization = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${baseURL}/register/`, userData);
+      const response = await axios.post(`${baseURL}/api/register/`, userData);
       if (response.status === 201) {
         setUserData({ ...userData, username: "", email: "", password: "" });
         alert("Registration successful");
@@ -67,7 +67,7 @@ const Authorization = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${baseURL}/login/`, userData);
+      const response = await axios.post(`${baseURL}/api/login/`, userData);
       if (response.status === 200) {
         const { access, refresh } = response.data;
         localStorage.setItem("accessToken", access);

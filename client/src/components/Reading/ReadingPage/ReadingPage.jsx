@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 
 import { Navbar } from '../../Layouts';
 
+import baseURL from '../../../store/endpoint';
+
 import './ReadingPage.css';
 
 const ReadingPage = () => {
@@ -17,11 +19,11 @@ const ReadingPage = () => {
     const fetchContextAndQuestions = async () => {
       try {
         // Fetch context by ID
-        const contextResponse = await axios.get(`http://localhost:8000/api/contexts/${id}/`);
+        const contextResponse = await axios.get(`${baseURL}/api/contexts/${id}/`);
         setContext(contextResponse.data);
   
         // Fetch questions for this context
-        const questionsResponse = await axios.get(`http://localhost:8000/api/context_questions/`);
+        const questionsResponse = await axios.get(`${baseURL}/api/context_questions/`);
         const filteredQuestions = questionsResponse.data.filter(q => q.text.toString() === id); // Client-side filtering
         setQuestions(filteredQuestions);
       } catch (error) {
@@ -52,7 +54,7 @@ const ReadingPage = () => {
     const contextText = context?.content;
   
     try {
-      const response = await axios.post('http://localhost:8000/api/compare_answers/', {
+      const response = await axios.post(`${baseURL}/api/compare_answers/`, {
         context: contextText,
         question: questionText,
         user_answer: answer

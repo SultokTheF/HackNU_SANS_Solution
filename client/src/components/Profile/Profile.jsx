@@ -8,6 +8,8 @@ import { Loader } from '../UI';
 import './UserProfile.css'; // Make sure the styles provided are here
 import logo from "../../assets/avatars";
 
+import baseURL from '../../store/endpoint';
+
 const Profile = () => {
   const { id } = useParams();
   const [userData, setUserData] = useState(null);
@@ -16,7 +18,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/user/${id}/`);
+        const response = await axios.get(`${baseURL}/api/user/${id}/`);
         setUserData(response.data);
         setIsLoading(false);
       } catch (error) {

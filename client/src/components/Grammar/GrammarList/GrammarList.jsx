@@ -5,6 +5,8 @@ import { Navbar } from '../../Layouts';
 
 import GrammarItem from '../GrammarItem/GrammarItem'; // Assuming you have a GrammarItem component
 
+import baseUrl from '../../../store/endpoint';
+
 import "./GrammarList.css";
 
 const GrammarList = () => {
@@ -13,7 +15,7 @@ const GrammarList = () => {
   useEffect(() => {
     const fetchGrammarTopics = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/grammar_topics/');
+        const response = await axios.get(`${baseUrl}/api/grammar_topics/`);
         setGrammarTopics(response.data);
       } catch (error) {
         console.error('There was an error fetching the grammar topics!', error);

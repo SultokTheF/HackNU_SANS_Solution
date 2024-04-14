@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import baseURL from "../store/endpoint";
+
 const useAuthentication = () => {
   const [userData, setUserData] = useState(null);
 
@@ -9,7 +11,7 @@ const useAuthentication = () => {
       const accessToken = localStorage.getItem("accessToken");
       if (accessToken) {
         try {
-          const response = await axios.get("http://localhost:8000/api/user/", {
+          const response = await axios.get(`${baseURL}/api/user/`, {
             headers: {
               Authorization: `Bearer ${accessToken}`,
             },

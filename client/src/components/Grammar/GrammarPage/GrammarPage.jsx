@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 
 import { Navbar } from '../../Layouts';
 
+import baseURl from '../../../store/endpoint';
+
 import './GrammarPage.css';
 
 const GrammarPage = () => {
@@ -18,11 +20,11 @@ const GrammarPage = () => {
     const fetchGrammarTopicAndQuestions = async () => {
       try {
         // Fetch grammar topic by ID
-        const grammarTopicResponse = await axios.get(`http://localhost:8000/api/grammar_topics/${id}/`);
+        const grammarTopicResponse = await axios.get(`${baseURl}/api/grammar_topics/${id}/`);
         setGrammarTopic(grammarTopicResponse.data);
   
         // Fetch questions for this grammar topic
-        const questionsResponse = await axios.get(`http://localhost:8000/api/questions/`);
+        const questionsResponse = await axios.get(`${baseURl}/api/questions/`);
         const filteredQuestions = questionsResponse.data.filter(q => q.grammar_topic === parseInt(id)); // Client-side filtering
         setQuestions(filteredQuestions);
       } catch (error) {
@@ -43,7 +45,7 @@ const GrammarPage = () => {
   const handleSubmit = async (questionId) => {
     try {
       const response = await axios.post(
-        'http://localhost:8000/api/submit_answer/',
+        `${baseURl}/api/submit_answer/`,
         {
           question_id: questionId,
           user_answer: answers[questionId]

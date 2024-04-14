@@ -6,13 +6,15 @@ import { Navbar } from '../Layouts';
 import './Leaderboard.css'; 
 import logo from "../../assets/avatars"; // Ensure this path is correct
 
+import baseURL from '../../store/endpoint';
+
 const Leaderboard = () => {
   const [leaders, setLeaders] = useState([]);
 
   useEffect(() => {
     const fetchLeaders = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/leaders/');
+        const response = await axios.get(`${baseURL}/api/leaders/`);
         setLeaders(response.data);
       } catch (error) {
         console.error('Error fetching leaderboard:', error);

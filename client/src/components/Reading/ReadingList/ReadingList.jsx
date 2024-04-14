@@ -5,6 +5,8 @@ import { Navbar } from '../../Layouts';
 
 import ReadingItem from '../ReadingItem/ReadingItem';
 
+import baseURL from '../../../store/endpoint';
+
 import "./ReadingList.css";
 
 const ReadingList = () => {
@@ -19,7 +21,7 @@ const ReadingList = () => {
       }
 
       try {
-        const response = await axios.get('http://localhost:8000/api/contexts/');
+        const response = await axios.get(`${baseURL}/api/contexts/`);
         setContexts(response.data);
       } catch (error) {
         console.error('There was an error fetching the context questions!', error);
