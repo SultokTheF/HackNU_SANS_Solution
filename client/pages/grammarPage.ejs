@@ -57,7 +57,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#" style="color: #FFFFFF;">Learning Platform</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -69,7 +69,7 @@
                         <a class="nav-link" href="#" style="color: #FFFFFF;">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./grammarPage.html" style="color: #FFFFFF;">Grammar</a>
+                        <a class="nav-link" href="/grammar" style="color: #FFFFFF;">Grammar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" style="color: #FFFFFF;">Reading</a>
@@ -92,12 +92,12 @@
     <div class="container mt-4">
         <div class="row">
             <% courses.forEach(course => { %>
-                <div class="col">
+                <div class="col-6 mb-4">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title"><%= course.title %></h5>
                             <p class="card-text"><%= course.description %></p>
-                            <a href="/quizPage/<%= course.id %>" class="btn btn-primary">Begin</a>
+                            <a href="/lesson/<%= course.id %>" class="btn btn-primary">Begin</a>
                         </div>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
     <div class="container-fluid">
         <div class="row justify-content-end fixed-bottom mb-4 mr-4">
             <div class="col-auto">
-                <a href="/grammar/" class="btn btn-primary rounded">
+                <a href="/grammar/add" class="btn btn-primary rounded">
                     <span class="material-icons pt-1">add</span>
                 </a>
             </div>

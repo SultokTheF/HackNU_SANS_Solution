@@ -55,7 +55,7 @@
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Grammar</a>
+                        <a class="nav-link" href="/grammar">Grammar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Reading</a>
@@ -97,25 +97,13 @@
             
             <h2>Quiz</h2>
             <div id="quizQuestions">
-                <div class="form-group">
-                    <label for="question1">Question 1:</label>
-                    <input type="text" class="form-control" id="question1" name="question1" required>
-                </div>
-                <div class="form-group">
-                    <label for="correctAnswer1">Correct Answer:</label>
-                    <input type="text" class="form-control" id="correctAnswer1" name="correctAnswer1" required>
-                </div>
-                <div class="form-group">
-                    <label for="incorrectAnswer1">Incorrect Answer:</label>
-                    <input type="text" class="form-control" id="incorrectAnswer1" name="incorrectAnswer1" required>
-                </div>
             </div>
 
             <div class="text-center">
                 <button type="button" class="btn btn-primary" id="addQuestion">Add Question</button>
             </div>
             
-            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            <button type="submit" class="btn btn-primary mt-3 mb-3">Submit</button>
         </form>
     </div>
 
@@ -124,27 +112,28 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
-            let questionCount = 1;
-
+            let questionCount = 0;
+    
             $('#addQuestion').click(function() {
                 questionCount++;
-
+    
                 let newQuestion = `
                     <div class="form-group">
                         <label for="question${questionCount}">Question ${questionCount}:</label>
-                        <input type="text" class="form-control" id="question${questionCount}" name="question${questionCount}" required>
+                        <input type="text" class="form-control" id="question${questionCount}" name="questions[]" required>
                     </div>
                     <div class="form-group">
                         <label for="correctAnswer${questionCount}">Correct Answer:</label>
-                        <input type="text" class="form-control" id="correctAnswer${questionCount}" name="correctAnswer${questionCount}" required>
+                        <input type="text" class="form-control" id="correctAnswer${questionCount}" name="correctAnswers[]" required>
                     </div>
                     <div class="form-group">
                         <label for="incorrectAnswer${questionCount}">Incorrect Answer:</label>
-                        <input type="text" class="form-control" id="incorrectAnswer${questionCount}" name="incorrectAnswer${questionCount}" required>
+                        <input type="text" class="form-control" id="incorrectAnswer${questionCount}" name="incorrectAnswers[]" required>
                     </div>
                 `;
-
+    
                 $('#quizQuestions').append(newQuestion);
             });
         });
- 
+    </script>
+    

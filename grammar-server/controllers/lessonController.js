@@ -25,17 +25,82 @@ exports.getLessonById = async (req, res) => {
     }
 };
 
-// Create a new lesson
+// Creation of a new lesson.
 exports.createLesson = async (req, res) => {
     try {
-        const newLesson = new Lesson(req.body);
+        const { title, description, youtubeLink, textContent } = req.body;
+
+        // Extract video ID from the YouTube link
+        const videoId = extractVideoId(youtubeLink);
+
+        // Construct the YouTube embed URL
+        const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+
+        // Extract questions, correct answers, and incorrect answers from the request body
+        const questions = req.body.questions || [];
+        const correctAnswers = req.body.correctAnswers || [];
+        const incorrectAnswers = req.body.incorrectAnswers || [];
+
+        // Create an array to hold the question objects
+        const questionObjects = [];
+
+        // Iterate over the questions array from the request body
+        for (let i = 0; i < questions.length; i++) {
+            const question = questions[i];
+            const correctAnswer = correctAnswers[i];
+            const incorrectAnswer = incorrectAnswers[i];
+
+            // Create a new question object
+            const questionObject = {
+                question,
+                correctAnswer,
+                incorrectAnswer
+            };
+
+            // Push the question object to the array
+            questionObjects.push(questionObject);
+        }
+
+        // Create a new lesson object with the extracted fields and the array of question objects
+        const newLesson = new Lesson({
+            title,
+            description,
+            youtubeLink: embedUrl, // Assign the embedded YouTube URL
+            textContent,
+            questions: questionObjects // Assign the array of question objects
+        });
+
+        // Save the new lesson to the database
         await newLesson.save();
-        res.status(201).json(newLesson);
+        
+        // Redirect to the grammar page after successfully creating the lesson
+        res.redirect('/grammar');
     } catch (err) {
+        // Handle errors
         console.error('Error creating lesson:', err);
         res.status(500).json({ error: 'Server Error' });
     }
 };
+
+// Function to extract video ID from YouTube link
+function extractVideoId(youtubeLink) {
+    // Extract the video ID using a regular expression
+    const match = youtubeLink.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+
+    // If a match is found, return the video ID
+    if (match && match[1]) {
+        return match[1];
+    } else {
+        // If no match is found, throw an error
+        throw new Error('Invalid YouTube link');
+    }
+}
+
+
+
+
+
+
 
 // Update lesson by ID
 exports.updateLesson = async (req, res) => {
