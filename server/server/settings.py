@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "grammar",
 
     #apps
     "users.apps.UsersConfig",
@@ -77,9 +78,9 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         'NAME': 'HackNU',
         'USER': 'postgres',
-        'PASSWORD': '03110311',
+        'PASSWORD': '12345678',
         'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': '5432',
     }
 }
 
