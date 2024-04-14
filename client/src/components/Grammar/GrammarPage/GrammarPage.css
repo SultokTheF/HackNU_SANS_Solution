@@ -1,0 +1,63 @@
+/* GrammarPage.css */
+
+.grammar-page {
+  padding-top: calc(var(--navbarHeight) + 4rem); /* Increased top padding */
+  /* display: grid; */
+  gap: 2rem;
+  padding-left: 4rem; /* You can adjust this as needed */
+  padding-right: 4rem; /* You can adjust this as needed */
+  padding-bottom: 4rem; /* Increased bottom padding for consistency */
+}
+
+.grammar-topic {
+  margin-bottom: 2rem; /* Space between grammar topic and questions */
+  padding: 20px;
+  background: var(--bgcolor);
+  color: var(--textColor);
+  border-radius: 10px;
+  box-shadow: var(--boxShadow);
+}
+
+.questions {
+  /* Styles for the question container */
+}
+
+.question-item {
+  background: var(--bgcolor);
+  color: var(--textColor);
+  box-shadow: var(--boxShadow);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 1rem; /* Space between questions */
+}
+
+.question-text {
+  margin-bottom: 1rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primaryColor);
+  color: var(--textColor);
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.result-feedback {
+  /* Styles for the result feedback container */
+}
+
+/* Add any additional styles you need */
